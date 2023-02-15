@@ -395,6 +395,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &865517794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6df730e25a69b2043b38c344c6f8db22, type: 3}
+  m_PrefabInstance: {fileID: 587412333}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &865517798
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865517794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5551418225153903260, guid: 6df730e25a69b2043b38c344c6f8db22, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20633d7a62e9cf64f81ed7c8969028ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 400
+  mouseSensitivity: 5
   playerBody: {fileID: 1017898789}
 --- !u!1 &1017898787
 GameObject:
@@ -504,6 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1017898789}
   - component: {fileID: 1017898788}
+  - component: {fileID: 1017898790}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -546,6 +566,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1017898790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017898787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eeec52c1adac05469ffb2b9cc6864e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 1017898788}
+  speed: 4
 --- !u!1 &1582107521
 GameObject:
   m_ObjectHideFlags: 0
