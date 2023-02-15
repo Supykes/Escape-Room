@@ -13,6 +13,11 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
+        ControlView();
+    }
+
+    void ControlView()
+    {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 

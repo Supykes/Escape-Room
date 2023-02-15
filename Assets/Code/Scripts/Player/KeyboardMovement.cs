@@ -7,6 +7,11 @@ public class KeyboardMovement : MonoBehaviour
 
     void Update()
     {
+        ControlMovement();
+    }
+
+    void ControlMovement()
+    {
         float keyboardX = Input.GetAxis("Horizontal");
         float keyboardZ = Input.GetAxis("Vertical");
 
