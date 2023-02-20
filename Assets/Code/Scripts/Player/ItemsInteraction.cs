@@ -7,13 +7,18 @@ public class ItemsInteraction : MonoBehaviour
     GameObject pickableItem;
     GameObject item;
     bool canPickUp;
+    public GameObject pickUpText;
+    bool textBox;
+
+    void FixedUpdate()
+    {
+        CheckItems();
+
+        //Debug.Log(canPickUp);
+    }
 
     void Update()
     {
-        Debug.Log(canPickUp);
-
-        CheckItems();
-
         if (canPickUp && item == null)
         {
             if (Input.GetKeyDown("e"))
@@ -39,16 +44,31 @@ public class ItemsInteraction : MonoBehaviour
         {
             if (hitInfo.transform.tag == "CanPickUp")
             {
+                textBox = false;
                 canPickUp = true;
                 pickableItem = hitInfo.transform.gameObject;
 
                 pickUpDistance = 100f;
+
+                pickUpText.SetActive(true);
+            }
+            else if (hitInfo.transform.tag == "CanPickUpAndText")
+            {
+                textBox = true;
+                canPickUp = true;
+                pickableItem = hitInfo.transform.gameObject;
+
+                pickUpDistance = 100f;
+
+                pickUpText.SetActive(true);
             }
             else
             {
                 canPickUp = false;
 
                 pickUpDistance = 2f;
+
+                pickUpText.SetActive(false);
             }
         }
     }
@@ -57,11 +77,16 @@ public class ItemsInteraction : MonoBehaviour
     {
         item = pickableItem;
 
-        item.transform.position = pickedUpItemTransform.position;
         item.transform.parent = pickedUpItemTransform;
+        item.transform.position = pickedUpItemTransform.position;
         item.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
 
         item.GetComponent<Rigidbody>().isKinematic = true;
+
+        if (textBox)
+        {
+            item.GetComponent<TextBoxAppearance>().ShowTextBox();
+        }
     }
 
     void DropItem()
