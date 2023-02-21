@@ -13,8 +13,6 @@ public class ItemsInteraction : MonoBehaviour
     void FixedUpdate()
     {
         CheckItems();
-
-        //Debug.Log(canPickUp);
     }
 
     void Update()
@@ -29,6 +27,8 @@ public class ItemsInteraction : MonoBehaviour
 
         if (item != null)
         {
+            pickUpText.SetActive(false);
+
             if (Input.GetKeyDown("q"))
             {
                 DropItem();
@@ -80,6 +80,7 @@ public class ItemsInteraction : MonoBehaviour
         item.transform.parent = pickedUpItemTransform;
         item.transform.position = pickedUpItemTransform.position;
         item.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
+        item.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
 
         item.GetComponent<Rigidbody>().isKinematic = true;
 
@@ -92,8 +93,10 @@ public class ItemsInteraction : MonoBehaviour
     void DropItem()
     {
         item.transform.parent = null;
+        item.transform.localScale = new Vector3(1f, 1f, 1f);
 
         item.GetComponent<Rigidbody>().isKinematic = false;
+        item.GetComponent<Rigidbody>().AddForce(transform.forward * 2f, ForceMode.Impulse);
 
         item = null;
     }
