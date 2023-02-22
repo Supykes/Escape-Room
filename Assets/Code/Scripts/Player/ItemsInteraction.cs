@@ -96,7 +96,7 @@ public class ItemsInteraction : MonoBehaviour
         item.transform.localScale = new Vector3(1f, 1f, 1f);
 
         item.GetComponent<Rigidbody>().isKinematic = false;
-        item.GetComponent<Rigidbody>().AddForce(transform.forward * 2f, ForceMode.Impulse);
+        item.GetComponent<Rigidbody>().AddForce(transform.forward * 1.5f, ForceMode.Impulse);
 
         item = null;
     }
