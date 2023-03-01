@@ -1623,7 +1623,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1415388520}
   m_CullTransparentMesh: 1
---- !u!1 &1725648072
+--- !u!1 &1718237076
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1631,22 +1631,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1725648074}
-  - component: {fileID: 1725648073}
+  - component: {fileID: 1718237078}
+  - component: {fileID: 1718237077}
   m_Layer: 0
-  m_Name: Directional Light
+  m_Name: Light (To Do)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!108 &1725648073
+--- !u!108 &1718237077
 Light:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725648072}
+  m_GameObject: {fileID: 1718237076}
   m_Enabled: 1
   serializedVersion: 10
   m_Type: 1
@@ -1702,13 +1702,13 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!4 &1725648074
+--- !u!4 &1718237078
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1725648072}
+  m_GameObject: {fileID: 1718237076}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
   m_LocalPosition: {x: 1.22, y: 5.6, z: -3.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -1729,7 +1729,7 @@ GameObject:
   - component: {fileID: 1730303261}
   - component: {fileID: 1730303260}
   m_Layer: 0
-  m_Name: EventSystem
+  m_Name: Event System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
