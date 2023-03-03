@@ -13,7 +13,10 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        ControlView();
+        if (GameManager.isInputEnabled)
+        {
+            ControlView();
+        }
     }
 
     void ControlView()

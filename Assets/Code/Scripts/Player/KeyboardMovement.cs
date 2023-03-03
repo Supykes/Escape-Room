@@ -7,7 +7,10 @@ public class KeyboardMovement : MonoBehaviour
 
     void Update()
     {
-        ControlMovement();
+        if (GameManager.isInputEnabled)
+        {
+            ControlMovement();
+        }
     }
 
     void ControlMovement()

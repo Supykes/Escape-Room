@@ -17,21 +17,24 @@ public class ItemsInteraction : MonoBehaviour
 
     void Update()
     {
-        if (canPickUp && item == null)
+        if (GameManager.isInputEnabled)
         {
-            if (Input.GetKeyDown("e"))
+            if (canPickUp && item == null)
             {
-                PickUpItem();
+                if (Input.GetKeyDown("e"))
+                {
+                    PickUpItem();
+                }
             }
-        }
 
-        if (item != null)
-        {
-            pickUpText.SetActive(false);
-
-            if (Input.GetKeyDown("q"))
+            if (item != null)
             {
-                DropItem();
+                pickUpText.SetActive(false);
+
+                if (Input.GetKeyDown("q"))
+                {
+                    DropItem();
+                }
             }
         }
     }

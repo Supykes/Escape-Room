@@ -3,6 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static bool isInputEnabled = true;
+
     public void StartGame()
     {
         SceneManager.LoadScene("Main Scene");
