@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CanPickUp
   - CanPickUpAndText
+  - IsDoor
+  - IsDrawer
   layers:
   - Default
   - TransparentFX
