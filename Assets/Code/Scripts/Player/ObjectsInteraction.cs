@@ -2,23 +2,24 @@ using UnityEngine;
 
 public class ObjectsInteraction : MonoBehaviour
 {
-    private float interactDistance = 100f;
-    private DoorController interactableDoor=null;
-    private DrawerController interactableDrawer = null;
-    private bool canInteract;
+    float interactDistance = 100f;
+    CabinetAnimation interactableDoor = null;
+    DrawerAnimation interactableDrawer = null;
+    bool canInteract;
+    public GameObject openText;
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         CheckInteractions();
     }
 
-    private void Update()
+    void Update()
     {
         if (GameManager.isInputEnabled)
         {
             if (canInteract)
             {
-                if (Input.GetKeyDown("e") && interactableDoor!=null)
+                if (Input.GetKeyDown("e") && interactableDoor != null)
                 {
                     interactableDoor.PlayAnimation();
                     interactableDoor = null;
@@ -32,7 +33,7 @@ public class ObjectsInteraction : MonoBehaviour
         }
     }
 
-    private void CheckInteractions()
+    void CheckInteractions()
     {
         RaycastHit hitInfo;
 
@@ -41,22 +42,30 @@ public class ObjectsInteraction : MonoBehaviour
             if (hitInfo.transform.tag == "IsDoor")
             {
                 canInteract = true;
-                interactableDoor = hitInfo.collider.gameObject.GetComponent<DoorController>();
+                interactableDoor = hitInfo.collider.gameObject.GetComponent<CabinetAnimation>();
                 interactableDrawer = null;
+
                 interactDistance = 100f;
+
+                openText.SetActive(true);
             }
             else if (hitInfo.transform.tag == "IsDrawer")
             {
                 canInteract = true;
-                interactableDrawer=hitInfo.collider.gameObject.GetComponent<DrawerController>();
+                interactableDrawer = hitInfo.collider.gameObject.GetComponent<DrawerAnimation>();
                 interactableDoor = null;
+
                 interactDistance = 100f;
+
+                openText.SetActive(true);
             }
             else
             {
                 canInteract = false;
 
                 interactDistance = 2f;
+
+                openText.SetActive(false);
             }
         }
     }

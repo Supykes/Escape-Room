@@ -16,9 +16,7 @@ public class TextBoxAppearance : MonoBehaviour
         {
             if (Input.GetKeyDown("f"))
             {
-                itemInformationBox.SetActive(false);
-
-                GameManager.isInputEnabled = true;
+                CloseTextBox();
             }
         }
     }
@@ -33,5 +31,12 @@ public class TextBoxAppearance : MonoBehaviour
 
             textBoxOnce = true;
         }
+    }
+
+    void CloseTextBox()
+    {
+        itemInformationBox.SetActive(false);
+
+        GameManager.isInputEnabled = true;
     }
 }

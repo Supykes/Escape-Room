@@ -20,5 +20,7 @@ public class KeyboardMovement : MonoBehaviour
 
         Vector3 move = transform.right * keyboardX + transform.forward * keyboardZ;
         characterController.Move(move * speed * Time.deltaTime);
+
+        transform.position = new Vector3(transform.position.x, 1.08f, transform.position.z);
     }
 }
