@@ -31,7 +31,7 @@ public class ObjectsInteraction : MonoBehaviour
                     interactableDrawer.PlayAnimation();
                     interactableDrawer = null;
                 }
-                else if (Input.GetKeyDown("e") && interactableFurnace != null)
+                else if (Input.GetKeyDown("e") && interactableFurnace != null && !FurnaceInteraction.startTimer)
                 {
                     interactableFurnace.ProcessRawMaterial();
                     interactableFurnace = null;

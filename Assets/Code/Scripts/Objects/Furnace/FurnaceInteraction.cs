@@ -7,7 +7,7 @@ public class FurnaceInteraction : MonoBehaviour
     public GameObject metal1, metal2, metal3;
     GameObject pickedUpItem = null;
     bool requiredItem = false;
-    bool startTimer = false;
+    public static bool startTimer = false;
     float timeRemaining = 6f;
 
     void Update()
@@ -15,7 +15,7 @@ public class FurnaceInteraction : MonoBehaviour
         GetChild();
         CheckRequiredItem();
 
-        StartTimer();
+        CountTime();
     }
 
     void GetChild()
@@ -53,37 +53,40 @@ public class FurnaceInteraction : MonoBehaviour
         {
             if (pickedUpItem.name == "Raw material 1")
             {
-                startTimer = true;
-
                 Destroy(pickedUpItem);
                 StartCoroutine(SpawnMetal(metal1, 5f));
+
+                startTimer = true;
             }
             else if (pickedUpItem.name == "Raw material 2")
             {
-                startTimer = true;
-
                 Destroy(pickedUpItem);
                 StartCoroutine(SpawnMetal(metal2, 5f));
+
+                startTimer = true;
             }
             else if (pickedUpItem.name == "Raw material 3")
             {
-                startTimer = true;
-
                 Destroy(pickedUpItem);
                 StartCoroutine(SpawnMetal(metal3, 5f));
+
+                startTimer = true;
             }
         }
     }
 
-    void StartTimer()
+    void CountTime()
     {
-        float seconds;
         if (startTimer)
         {
-            if (timeRemaining >= 0)
+            float seconds;
+
+            if (timeRemaining > 0)
             {
                 timeRemaining -= Time.deltaTime;
-                Debug.Log(seconds = Mathf.FloorToInt(timeRemaining % 60));
+                seconds = Mathf.FloorToInt(timeRemaining % 60);
+
+                Debug.Log(seconds);
             }
         }
         else

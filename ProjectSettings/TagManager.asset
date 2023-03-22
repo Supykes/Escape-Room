@@ -9,6 +9,7 @@ TagManager:
   - IsDoor
   - IsDrawer
   - IsFurnace
+  - IsComponent
   layers:
   - Default
   - TransparentFX
