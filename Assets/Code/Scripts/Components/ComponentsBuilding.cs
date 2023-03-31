@@ -18,6 +18,10 @@ public class ComponentsBuilding : MonoBehaviour
         {
             pickedUpItem = itemTransform.transform.GetChild(0).gameObject;
         }
+        else
+        {
+            pickedUpItem = null;
+        }
     }
 
     void CheckRequiredItem()
