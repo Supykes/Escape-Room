@@ -6,6 +6,7 @@ public class ObjectsInteraction : MonoBehaviour
     CabinetAnimation interactableDoor = null;
     DrawerAnimation interactableDrawer = null;
     FurnaceInteraction interactableFurnace = null;
+    LightSwitchInteraction interactableSwitch = null;
     bool canInteract;
     public GameObject openText;
     public GameObject useText;
@@ -36,6 +37,11 @@ public class ObjectsInteraction : MonoBehaviour
                     interactableFurnace.ProcessRawMaterial();
                     interactableFurnace = null;
                 }
+                else if (Input.GetKeyDown("e") && interactableSwitch != null)
+                {
+                    interactableSwitch.SwitchLight();
+                    interactableSwitch = null;
+                }
             }
         }
     }
@@ -52,6 +58,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDoor = hitInfo.collider.gameObject.GetComponent<CabinetAnimation>();
                 interactableDrawer = null;
                 interactableFurnace = null;
+                interactableSwitch = null;
 
                 interactDistance = 100f;
 
@@ -64,6 +71,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDrawer = hitInfo.collider.gameObject.GetComponent<DrawerAnimation>();
                 interactableDoor = null;
                 interactableFurnace = null;
+                interactableSwitch = null;
 
                 interactDistance = 100f;
 
@@ -76,11 +84,25 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableFurnace = hitInfo.collider.gameObject.GetComponent<FurnaceInteraction>();
                 interactableDoor = null;
                 interactableDrawer = null;
+                interactableSwitch = null;
 
                 interactDistance = 100f;
 
                 openText.SetActive(false);
                 useText.SetActive(true);
+            }
+            else if (hitInfo.transform.tag == "IsLightSwitch")
+            {
+                canInteract = true;
+                interactableSwitch = hitInfo.collider.gameObject.GetComponent<LightSwitchInteraction>();
+                interactableFurnace = null;
+                interactableDoor = null;
+                interactableDrawer = null;
+
+                interactDistance = 100f;
+
+                openText.SetActive(true);
+                useText.SetActive(false);
             }
             else
             {
