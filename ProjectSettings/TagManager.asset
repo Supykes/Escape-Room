@@ -11,6 +11,7 @@ TagManager:
   - IsFurnace
   - IsComponent
   - IsLightSwitch
+  - IsRecyclingBox
   layers:
   - Default
   - TransparentFX

@@ -7,6 +7,7 @@ public class ObjectsInteraction : MonoBehaviour
     DrawerAnimation interactableDrawer = null;
     FurnaceInteraction interactableFurnace = null;
     LightSwitchInteraction interactableSwitch = null;
+    RecyclingBoxInteraction interactableRecyclingBox = null;
     bool canInteract;
     public GameObject openText;
     public GameObject useText;
@@ -42,6 +43,11 @@ public class ObjectsInteraction : MonoBehaviour
                     interactableSwitch.SwitchLight();
                     interactableSwitch = null;
                 }
+                else if (Input.GetKeyDown("e") && interactableRecyclingBox != null)
+                {
+                    interactableRecyclingBox.RecycleMobileDevice();
+                    interactableRecyclingBox = null;
+                }
             }
         }
     }
@@ -59,6 +65,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDrawer = null;
                 interactableFurnace = null;
                 interactableSwitch = null;
+                interactableRecyclingBox = null;
 
                 interactDistance = 100f;
 
@@ -72,6 +79,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDoor = null;
                 interactableFurnace = null;
                 interactableSwitch = null;
+                interactableRecyclingBox = null;
 
                 interactDistance = 100f;
 
@@ -85,6 +93,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDoor = null;
                 interactableDrawer = null;
                 interactableSwitch = null;
+                interactableRecyclingBox = null;
 
                 interactDistance = 100f;
 
@@ -98,11 +107,26 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableFurnace = null;
                 interactableDoor = null;
                 interactableDrawer = null;
+                interactableRecyclingBox = null;
 
                 interactDistance = 100f;
 
                 openText.SetActive(true);
                 useText.SetActive(false);
+            }
+            else if (hitInfo.transform.tag == "IsRecyclingBox")
+            {
+                canInteract = true;
+                interactableRecyclingBox = hitInfo.collider.gameObject.GetComponent<RecyclingBoxInteraction>();
+                interactableSwitch = null;
+                interactableFurnace = null;
+                interactableDoor = null;
+                interactableDrawer = null;
+
+                interactDistance = 100f;
+
+                openText.SetActive(false);
+                useText.SetActive(true);
             }
             else
             {
