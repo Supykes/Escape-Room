@@ -6,11 +6,6 @@ public class LightSwitchInteraction : MonoBehaviour
     public GameObject switchOn;
     public GameObject switchOff;
 
-    void Start()
-    {
-        switchOff.SetActive(false);
-    }
-
     public void SwitchLight()
     {
         if (lampLight.activeSelf)
