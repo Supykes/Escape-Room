@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObjectsInteraction : MonoBehaviour
 {
-    float interactDistance = 100f;
+    float interactDistance = 2f;
     CabinetAnimation interactableDoor = null;
     DrawerAnimation interactableDrawer = null;
     FurnaceInteraction interactableFurnace = null;
@@ -67,8 +67,6 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableSwitch = null;
                 interactableRecyclingBox = null;
 
-                interactDistance = 100f;
-
                 openText.SetActive(true);
                 useText.SetActive(false);
             }
@@ -80,8 +78,6 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableFurnace = null;
                 interactableSwitch = null;
                 interactableRecyclingBox = null;
-
-                interactDistance = 100f;
 
                 openText.SetActive(true);
                 useText.SetActive(false);
@@ -95,8 +91,6 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableSwitch = null;
                 interactableRecyclingBox = null;
 
-                interactDistance = 100f;
-
                 openText.SetActive(false);
                 useText.SetActive(true);
             }
@@ -108,8 +102,6 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDoor = null;
                 interactableDrawer = null;
                 interactableRecyclingBox = null;
-
-                interactDistance = 100f;
 
                 openText.SetActive(true);
                 useText.SetActive(false);
@@ -123,8 +115,6 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDoor = null;
                 interactableDrawer = null;
 
-                interactDistance = 100f;
-
                 openText.SetActive(false);
                 useText.SetActive(true);
             }
@@ -132,11 +122,16 @@ public class ObjectsInteraction : MonoBehaviour
             {
                 canInteract = false;
 
-                interactDistance = 2f;
-
                 openText.SetActive(false);
                 useText.SetActive(false);
             }
+        }
+        else
+        {
+            canInteract = false;
+
+            openText.SetActive(false);
+            useText.SetActive(false);
         }
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 public class ItemsInteraction : MonoBehaviour
 {
     public Transform pickedUpItemTransform;
-    float pickUpDistance = 100f;
+    float pickUpDistance = 2f;
     GameObject pickableItem;
     GameObject item;
     bool canPickUp;
@@ -51,8 +51,6 @@ public class ItemsInteraction : MonoBehaviour
                 canPickUp = true;
                 pickableItem = hitInfo.transform.gameObject;
 
-                pickUpDistance = 100f;
-
                 pickUpText.SetActive(true);
             }
             else if (hitInfo.transform.tag == "CanPickUpAndText")
@@ -61,18 +59,20 @@ public class ItemsInteraction : MonoBehaviour
                 canPickUp = true;
                 pickableItem = hitInfo.transform.gameObject;
 
-                pickUpDistance = 100f;
-
                 pickUpText.SetActive(true);
             }
             else
             {
                 canPickUp = false;
 
-                pickUpDistance = 2f;
-
                 pickUpText.SetActive(false);
             }
+        }
+        else
+        {
+            canPickUp = false;
+
+            pickUpText.SetActive(false);
         }
     }
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ComponentsInteraction : MonoBehaviour
 {
-    float interactDistance = 100f;
+    float interactDistance = 2f;
     ComponentsBuilding interactableComponent = null;
     bool canInteract;
     public GameObject useText;
@@ -38,18 +38,20 @@ public class ComponentsInteraction : MonoBehaviour
                 canInteract = true;
                 interactableComponent = hitInfo.collider.gameObject.GetComponent<ComponentsBuilding>();
 
-                interactDistance = 100f;
-
                 useText.SetActive(true);
             }
             else
             {
                 canInteract = false;
 
-                interactDistance = 2f;
-
                 useText.SetActive(false);
             }
+        }
+        else
+        {
+            canInteract = false;
+
+            useText.SetActive(false);
         }
     }
 }

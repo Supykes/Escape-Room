@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class DrawerCollision : MonoBehaviour
 {
-    void OnCollisionEnter(Collision item)
+    void OnCollisionStay(Collision item)
     {
         item.transform.parent = transform;
     }
