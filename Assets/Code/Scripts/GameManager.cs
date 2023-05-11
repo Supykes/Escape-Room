@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static bool isInputEnabled = true;
+    public static bool isGameOver = false;
 
     public void StartGame()
     {
