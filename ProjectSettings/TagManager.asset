@@ -12,6 +12,7 @@ TagManager:
   - IsComponent
   - IsLightSwitch
   - IsRecyclingBox
+  - IsButton
   layers:
   - Default
   - TransparentFX

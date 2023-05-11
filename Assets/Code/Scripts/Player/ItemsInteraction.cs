@@ -82,7 +82,7 @@ public class ItemsInteraction : MonoBehaviour
 
         item.transform.parent = pickedUpItemTransform;
         item.transform.position = pickedUpItemTransform.position;
-        item.transform.localEulerAngles = new Vector3(-90f, 0f, 0f);
+        item.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
         item.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
 
         item.GetComponent<Rigidbody>().isKinematic = true;

@@ -8,6 +8,7 @@ public class ObjectsInteraction : MonoBehaviour
     FurnaceInteraction interactableFurnace = null;
     LightSwitchInteraction interactableSwitch = null;
     RecyclingBoxInteraction interactableRecyclingBox = null;
+    ButtonsInteraction interactableButton = null;
     bool canInteract;
     public GameObject openText;
     public GameObject useText;
@@ -48,6 +49,11 @@ public class ObjectsInteraction : MonoBehaviour
                     interactableRecyclingBox.RecycleMobileDevice();
                     interactableRecyclingBox = null;
                 }
+                else if (Input.GetKeyDown("e") && interactableButton != null)
+                {
+                    interactableButton.HandleButtonBehaviour();
+                    interactableButton = null;
+                }
             }
         }
     }
@@ -66,6 +72,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableFurnace = null;
                 interactableSwitch = null;
                 interactableRecyclingBox = null;
+                interactableButton = null;
 
                 openText.SetActive(true);
                 useText.SetActive(false);
@@ -78,6 +85,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableFurnace = null;
                 interactableSwitch = null;
                 interactableRecyclingBox = null;
+                interactableButton = null;
 
                 openText.SetActive(true);
                 useText.SetActive(false);
@@ -90,6 +98,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDrawer = null;
                 interactableSwitch = null;
                 interactableRecyclingBox = null;
+                interactableButton = null;
 
                 openText.SetActive(false);
                 useText.SetActive(true);
@@ -102,6 +111,7 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableDoor = null;
                 interactableDrawer = null;
                 interactableRecyclingBox = null;
+                interactableButton = null;
 
                 openText.SetActive(true);
                 useText.SetActive(false);
@@ -110,6 +120,20 @@ public class ObjectsInteraction : MonoBehaviour
             {
                 canInteract = true;
                 interactableRecyclingBox = hitInfo.collider.gameObject.GetComponent<RecyclingBoxInteraction>();
+                interactableSwitch = null;
+                interactableFurnace = null;
+                interactableDoor = null;
+                interactableDrawer = null;
+                interactableButton = null;
+
+                openText.SetActive(false);
+                useText.SetActive(true);
+            }
+            else if (hitInfo.transform.tag == "IsButton")
+            {
+                canInteract = true;
+                interactableButton = hitInfo.collider.gameObject.GetComponent<ButtonsInteraction>();
+                interactableRecyclingBox = null;
                 interactableSwitch = null;
                 interactableFurnace = null;
                 interactableDoor = null;

@@ -35,8 +35,11 @@ public class TextBoxAppearance : MonoBehaviour
 
     void CloseTextBox()
     {
-        itemInformationBox.SetActive(false);
+        if (itemInformationBox.activeSelf)
+        {
+            itemInformationBox.SetActive(false);
 
-        GameManager.isInputEnabled = true;
+            GameManager.isInputEnabled = true;
+        }
     }
 }

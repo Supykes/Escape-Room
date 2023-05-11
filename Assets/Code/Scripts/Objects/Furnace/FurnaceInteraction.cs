@@ -5,7 +5,7 @@ using TMPro;
 public class FurnaceInteraction : MonoBehaviour
 {
     public GameObject itemTransform;
-    public GameObject metal1, metal2, metal3;
+    public GameObject goldBar, cobaltBar, galliumBar;
     public GameObject upperDoor;
     public GameObject canvas;
     public TMP_Text timerText;
@@ -44,7 +44,7 @@ public class FurnaceInteraction : MonoBehaviour
 
     void CheckRequiredItem()
     {
-        if (pickedUpItem != null && (pickedUpItem.name == "Raw material 1" || pickedUpItem.name == "Raw material 2" || pickedUpItem.name == "Raw material 3"))
+        if (pickedUpItem != null && (pickedUpItem.name == "Gold" || pickedUpItem.name == "Cobalt" || pickedUpItem.name == "Gallium"))
         {
             requiredItem = true;
         }
@@ -59,6 +59,7 @@ public class FurnaceInteraction : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         metal.SetActive(true);
+        metal.GetComponent<Rigidbody>().AddForce(Vector3.back * 2f, ForceMode.Impulse);
 
         startTimer = false;
     }
@@ -76,31 +77,31 @@ public class FurnaceInteraction : MonoBehaviour
     {
         if (requiredItem)
         {
-            if (pickedUpItem.name == "Raw material 1")
+            if (pickedUpItem.name == "Gold")
             {
                 Destroy(pickedUpItem);
                 StartCoroutine(OpenFurnace(4.9f));
-                StartCoroutine(SpawnMetal(metal1, 5f));
+                StartCoroutine(SpawnMetal(goldBar, 5f));
 
                 startTimer = true;
 
                 canvas.SetActive(true);
             }
-            else if (pickedUpItem.name == "Raw material 2")
+            else if (pickedUpItem.name == "Cobalt")
             {
                 Destroy(pickedUpItem);
                 StartCoroutine(OpenFurnace(4.9f));
-                StartCoroutine(SpawnMetal(metal2, 5f));
+                StartCoroutine(SpawnMetal(cobaltBar, 5f));
 
                 startTimer = true;
 
                 canvas.SetActive(true);
             }
-            else if (pickedUpItem.name == "Raw material 3")
+            else if (pickedUpItem.name == "Gallium")
             {
                 Destroy(pickedUpItem);
                 StartCoroutine(OpenFurnace(4.9f));
-                StartCoroutine(SpawnMetal(metal3, 5f));
+                StartCoroutine(SpawnMetal(galliumBar, 5f));
 
                 startTimer = true;
 
