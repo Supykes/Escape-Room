@@ -33,7 +33,7 @@ public class RecyclingBoxInteraction : MonoBehaviour
 
     void CheckRequiredItem()
     {
-        if (pickedUpItem != null && pickedUpItem.name == "Mobile Device")
+        if (pickedUpItem != null && pickedUpItem.name == "Fixed Mobile Device")
         {
             requiredItem = true;
         }

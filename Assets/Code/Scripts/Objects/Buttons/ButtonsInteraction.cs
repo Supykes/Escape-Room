@@ -6,11 +6,13 @@ public class ButtonsInteraction : MonoBehaviour
 {
     public enum ButtonType
     {
-        CombinationLockNumber,
-        CombinationLockSubmit,
         KeypadNumber,
         KeypadClear,
-        KeypadSubmit
+        KeypadSubmit,
+        CombinationLockNumber,
+        CombinationLockSubmit,
+        CombinationLockBoxNumber,
+        CombinationLockBoxSubmit
     }
 
     public ButtonType buttonType;
@@ -20,15 +22,19 @@ public class ButtonsInteraction : MonoBehaviour
     public TMP_Text combinationLockNumberText;
     public GameObject keypadDoor;
     public GameObject combinationLockDoor;
+    public GameObject combinationLockBoxTop;
     public GameObject keypad;
     public GameObject combinationLock;
     CabinetAnimation keypadDoorAnimation;
     CabinetAnimation combinationLockDoorAnimation;
-    string keypadCorrectCode = "1234";
-    string combinationLockCorrectCode = "1234";
+    string keypadCorrectCode = "3975";
+    string combinationLockCorrectCode = "5147";
+    string combinationLockBoxCorrectCode = "6208";
     static string keypadCurrentCode = "";
     static string combinationLockCurrentCode = "0000";
+    static string combinationLockBoxCurrentCode = "0000";
     char[] combinationLockCurrentCodeSymbols;
+    char[] combinationLockBoxCurrentCodeSymbols;
     int combinationLockNumber = 0;
 
     void Start()
@@ -47,16 +53,11 @@ public class ButtonsInteraction : MonoBehaviour
     {
         if (buttonType == ButtonType.CombinationLockNumber)
         {
-            if (combinationLockNumber == 9)
-            {
-                combinationLockNumber = -1;
-            }
-
-            combinationLockNumber++;
-
-            combinationLockNumberText.text = combinationLockNumber.ToString();
-
-            FormCombinationLockCurrentCode();
+            HandleCombinationLockNumbersBehaviour(ref combinationLockCurrentCode, combinationLockCurrentCodeSymbols);
+        }
+        else if (buttonType == ButtonType.CombinationLockBoxNumber)
+        {
+            HandleCombinationLockNumbersBehaviour(ref combinationLockBoxCurrentCode, combinationLockBoxCurrentCodeSymbols);
         }
         else if (buttonType == ButtonType.CombinationLockSubmit)
         {
@@ -65,6 +66,13 @@ public class ButtonsInteraction : MonoBehaviour
                 combinationLockDoorAnimation.PlayAnimation();
 
                 DisableButtonsInteraction(combinationLock);
+            }
+        }
+        else if (buttonType == ButtonType.CombinationLockBoxSubmit)
+        {
+            if (combinationLockBoxCurrentCode == combinationLockBoxCorrectCode)
+            {
+                Destroy(combinationLockBoxTop);
             }
         }
         else if (buttonType == ButtonType.KeypadNumber)
@@ -90,20 +98,28 @@ public class ButtonsInteraction : MonoBehaviour
 
                 DisableButtonsInteraction(keypad);
             }
-            else
-            {
-                keypadCurrentCode = "";
-
-                keypadNumbersText.text = keypadCurrentCode;
-            }
         }
     }
 
-    void FormCombinationLockCurrentCode()
+    void HandleCombinationLockNumbersBehaviour(ref string currentCode, char[] currentCodeSymbols)
     {
-        combinationLockCurrentCodeSymbols = combinationLockCurrentCode.ToCharArray();
-        combinationLockCurrentCodeSymbols[combinationLockButtonPosition] = Convert.ToChar(combinationLockNumberText.text);
-        combinationLockCurrentCode = new string(combinationLockCurrentCodeSymbols);
+        if (combinationLockNumber == 9)
+        {
+            combinationLockNumber = -1;
+        }
+
+        combinationLockNumber++;
+
+        combinationLockNumberText.text = combinationLockNumber.ToString();
+
+        FormCombinationLockCurrentCode(ref currentCode, currentCodeSymbols);
+    }
+
+    void FormCombinationLockCurrentCode(ref string currentCode, char[] currentCodeSymbols)
+    {
+        currentCodeSymbols = currentCode.ToCharArray();
+        currentCodeSymbols[combinationLockButtonPosition] = Convert.ToChar(combinationLockNumberText.text);
+        currentCode = new string(currentCodeSymbols);
     }
 
     void DisableButtonsInteraction(GameObject lockType)

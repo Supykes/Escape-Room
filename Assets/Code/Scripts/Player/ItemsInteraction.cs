@@ -17,6 +17,8 @@ public class ItemsInteraction : MonoBehaviour
 
     void Update()
     {
+        ControlPickUpDistance();
+
         if (GameManager.isInputEnabled)
         {
             if (canPickUp && item == null)
@@ -36,6 +38,18 @@ public class ItemsInteraction : MonoBehaviour
                     DropItem();
                 }
             }
+        }
+    }
+
+    void ControlPickUpDistance()
+    {
+        if (MouseLook.xRotation >= 45f)
+        {
+            pickUpDistance = 3f;
+        }
+        else
+        {
+            pickUpDistance = 2f;
         }
     }
 

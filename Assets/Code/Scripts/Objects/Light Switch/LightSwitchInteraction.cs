@@ -5,6 +5,7 @@ public class LightSwitchInteraction : MonoBehaviour
     public GameObject lampLight;
     public GameObject switchOn;
     public GameObject switchOff;
+    public GameObject hiddenCodeText;
 
     public void SwitchLight()
     {
@@ -14,6 +15,8 @@ public class LightSwitchInteraction : MonoBehaviour
             switchOff.SetActive(true);
 
             lampLight.SetActive(false);
+
+            hiddenCodeText.SetActive(true);
         }
         else
         {
@@ -21,6 +24,8 @@ public class LightSwitchInteraction : MonoBehaviour
             switchOff.SetActive(false);
 
             lampLight.SetActive(true);
+
+            hiddenCodeText.SetActive(false);
         }
     }
 }

@@ -4,6 +4,7 @@ public class ComponentsInteraction : MonoBehaviour
 {
     float interactDistance = 2f;
     ComponentsBuilding interactableComponent = null;
+    MobileDeviceInteraction interactableMobileDevice = null;
     bool canInteract;
     public GameObject useText;
 
@@ -23,6 +24,11 @@ public class ComponentsInteraction : MonoBehaviour
                     interactableComponent.InsertMetal();
                     interactableComponent = null;
                 }
+                else if (Input.GetKeyDown("e") && interactableMobileDevice != null)
+                {
+                    interactableMobileDevice.InsertComponent();
+                    interactableMobileDevice = null;
+                }
             }
         }
     }
@@ -37,6 +43,15 @@ public class ComponentsInteraction : MonoBehaviour
             {
                 canInteract = true;
                 interactableComponent = hitInfo.collider.gameObject.GetComponent<ComponentsBuilding>();
+                interactableMobileDevice = null;
+
+                useText.SetActive(true);
+            }
+            else if (hitInfo.transform.tag == "IsBrokenMobileDevice")
+            {
+                canInteract = true;
+                interactableMobileDevice = hitInfo.collider.gameObject.GetComponent<MobileDeviceInteraction>();
+                interactableComponent = null;
 
                 useText.SetActive(true);
             }

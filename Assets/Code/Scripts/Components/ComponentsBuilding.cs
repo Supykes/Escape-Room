@@ -3,6 +3,7 @@ using UnityEngine;
 public class ComponentsBuilding : MonoBehaviour
 {
     public GameObject itemTransform;
+    public bool isMetalInserted = false;
     GameObject pickedUpItem = null;
     bool requiredItem = false;
 
@@ -26,7 +27,8 @@ public class ComponentsBuilding : MonoBehaviour
 
     void CheckRequiredItem()
     {
-        if (pickedUpItem != null && pickedUpItem.name == "Metal 1")
+        if (pickedUpItem != null && ((pickedUpItem.name == "Gold Bar" && transform.name == "Chip") || (pickedUpItem.name == "Cobalt Bar" && transform.name == "Battery") ||
+        (pickedUpItem.name == "Gallium Bar" && transform.name == "Screen")))
         {
             requiredItem = true;
 
@@ -46,7 +48,9 @@ public class ComponentsBuilding : MonoBehaviour
         {
             Destroy(pickedUpItem);
 
-            transform.localScale = new Vector3(0.25f, 0.25f, 0.25f);
+            isMetalInserted = true;
+
+            gameObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 2f, ForceMode.Impulse);
         }
     }
 }
