@@ -6,6 +6,10 @@ public class UnreachableCollision : MonoBehaviour
 
     void OnTriggerStay(Collider item)
     {
-        item.gameObject.transform.position = pickedUpItemTransform.position;
+        if (item.tag == "CanPickUp" || item.tag == "CanPickUpAndText")
+        {
+            item.gameObject.transform.position = pickedUpItemTransform.position;
+            item.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        }
     }
 }

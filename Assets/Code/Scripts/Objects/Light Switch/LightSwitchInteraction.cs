@@ -5,6 +5,8 @@ public class LightSwitchInteraction : MonoBehaviour
     public GameObject lampLight;
     public GameObject switchOn;
     public GameObject switchOff;
+    public GameObject bulbOn;
+    public GameObject bulbOff;
     public GameObject hiddenCodeText;
 
     public void SwitchLight()
@@ -14,6 +16,9 @@ public class LightSwitchInteraction : MonoBehaviour
             switchOn.SetActive(false);
             switchOff.SetActive(true);
 
+            bulbOn.SetActive(false);
+            bulbOff.SetActive(true);
+
             lampLight.SetActive(false);
 
             hiddenCodeText.SetActive(true);
@@ -22,6 +27,9 @@ public class LightSwitchInteraction : MonoBehaviour
         {
             switchOn.SetActive(true);
             switchOff.SetActive(false);
+
+            bulbOn.SetActive(true);
+            bulbOff.SetActive(false);
 
             lampLight.SetActive(true);
 
