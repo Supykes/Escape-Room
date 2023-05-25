@@ -38,16 +38,16 @@ public class TimerManager : MonoBehaviour
         seconds += Time.deltaTime;
 
         time = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + ((int)seconds).ToString("00");
-        timerText.transform.GetComponent<TextMeshProUGUI>().text = "Laikas: " + time;
-        timeSpentText.text = "Sprendimo laikas: " + time;
+        timerText.transform.GetComponent<TextMeshProUGUI>().text = "Timer: " + time;
+        timeSpentText.text = "Time spent completing the room: " + time;
 
-        if (seconds >= 60)
+        if (seconds >= 60f)
         {
             minutes++;
 
-            seconds %= 60;
+            seconds %= 60f;
 
-            if (minutes >= 60)
+            if (minutes >= 60f)
             {
                 hours++;
 

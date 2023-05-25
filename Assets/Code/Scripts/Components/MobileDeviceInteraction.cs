@@ -1,9 +1,12 @@
 using UnityEngine;
+using System.Collections;
+using TMPro;
 
 public class MobileDeviceInteraction : MonoBehaviour
 {
     public GameObject fixedMobileDevice;
     public GameObject itemTransform;
+    public TMP_Text repairStatusText;
     GameObject pickedUpItem = null;
     ComponentsBuilding componentsBuilding = null;
     bool requiredItem = false;
@@ -12,6 +15,7 @@ public class MobileDeviceInteraction : MonoBehaviour
     void Start()
     {
         fixedMobileDevice.SetActive(false);
+        repairStatusText.gameObject.SetActive(false);
     }
 
     void Update()
@@ -49,14 +53,28 @@ public class MobileDeviceInteraction : MonoBehaviour
         }
     }
 
+    IEnumerator SpawnFixedMobileDevice(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        fixedMobileDevice.SetActive(true);
+
+        Destroy(gameObject);
+    }
+
     void CheckMobileDeviceRepairStatus()
     {
         if (componentsInsertedCount == 3)
         {
-            fixedMobileDevice.SetActive(true);
-
-            Destroy(gameObject);
+            StartCoroutine(SpawnFixedMobileDevice(1.5f));
         }
+
+        if (componentsInsertedCount == 1)
+        {
+            repairStatusText.gameObject.SetActive(true);
+        }
+
+        repairStatusText.text = componentsInsertedCount + "/3";
     }
 
     public void InsertComponent()
