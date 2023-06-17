@@ -4184,6 +4184,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777572294}
   m_Mesh: {fileID: -8834768111221369919, guid: 811603ec724a49f4681e7a9525f5ae08, type: 3}
+--- !u!1 &799523137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 799523138}
+  - component: {fileID: 799523139}
+  m_Layer: 6
+  m_Name: Box Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &799523138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799523137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 543450651916637203}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &799523139
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799523137}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.66693383, y: 3.0490608, z: 0.6767907}
+  m_Center: {x: 0.0012267532, y: 1.1792518, z: -0.0012187362}
 --- !u!1 &800170619
 GameObject:
   m_ObjectHideFlags: 0
@@ -8739,7 +8784,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time spent completing the room:'
+  m_text: 'Time spent solving the room:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2108b8e9d86a4614c8578edcbd1ffe9e, type: 2}
   m_sharedMaterial: {fileID: -7588977179859255344, guid: 2108b8e9d86a4614c8578edcbd1ffe9e, type: 2}
@@ -9485,7 +9530,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1427180553}
   m_LocalRotation: {x: 0, y: 0, z: -0.38268343, w: 0.92387956}
-  m_LocalPosition: {x: 0.565, y: -1.667, z: 0.165}
+  m_LocalPosition: {x: 0.565, y: -1.667, z: 0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11195,7 +11240,7 @@ RectTransform:
   m_GameObject: {fileID: 1785628346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10.01}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 0.09, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 159044769}
@@ -11228,7 +11273,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "For raw metals to be extracted smelting in a <color=#FFFF00>furnace</color>
     of high temperature with various <color=#008000>chemicals</color> is done.\n\n<align=justified>Such
-    production produces gaseos, <color=#0000FF>particulate matter emissions</color>,
+    production produces gases, <color=#0000FF>particulate matter emissions</color>,
     sewage waters, and, with metals in this game essential for today\u2018s electronics
     as a by-product, causes the greatest <color=#FF0000>degradation</color> of the
     environment.</align>"
@@ -13458,6 +13503,7 @@ Transform:
   m_Children:
   - {fileID: 5983448978953726815}
   - {fileID: 4208486596325966430}
+  - {fileID: 799523138}
   m_Father: {fileID: 543450653146371206}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: -10, y: -90, z: -90}
@@ -17681,7 +17727,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!4 &4208486596325966430
 Transform:
   m_ObjectHideFlags: 0
@@ -18148,7 +18194,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878122876567757266}
   m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
-  m_LocalPosition: {x: -0.684, y: 0.263, z: -3.603}
+  m_LocalPosition: {x: -0.7833, y: 0.263, z: -3.5912}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18482,7 +18528,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!33 &5365965632147226130
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -23241,7 +23287,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &8643468450629784325
 GameObject:
   m_ObjectHideFlags: 0
@@ -23577,7 +23623,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &8755435474981883435
 GameObject:
   m_ObjectHideFlags: 0
@@ -24132,7 +24178,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &9073799450888229350
 GameObject:
   m_ObjectHideFlags: 0
@@ -24531,7 +24577,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1 &9206547413203554531
 GameObject:
   m_ObjectHideFlags: 0

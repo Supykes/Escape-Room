@@ -113,8 +113,8 @@ public class ObjectsInteraction : MonoBehaviour
                 interactableRecyclingBox = null;
                 interactableButton = null;
 
-                openText.SetActive(true);
-                useText.SetActive(false);
+                openText.SetActive(false);
+                useText.SetActive(true);
             }
             else if (hitInfo.transform.tag == "IsRecyclingBox")
             {

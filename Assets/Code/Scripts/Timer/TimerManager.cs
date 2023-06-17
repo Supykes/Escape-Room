@@ -39,7 +39,7 @@ public class TimerManager : MonoBehaviour
 
         time = hours.ToString("00") + ":" + minutes.ToString("00") + ":" + ((int)seconds).ToString("00");
         timerText.transform.GetComponent<TextMeshProUGUI>().text = "Timer: " + time;
-        timeSpentText.text = "Time spent completing the room: " + time;
+        timeSpentText.text = "Time spent solving the room: " + time;
 
         if (seconds >= 60f)
         {
