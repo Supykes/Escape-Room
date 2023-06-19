@@ -3,7 +3,7 @@ using UnityEngine;
 public class KeyboardMovement : MonoBehaviour
 {
     public CharacterController characterController;
-    public float speed = 5f;
+    public float speed = 4f;
 
     void Update()
     {
